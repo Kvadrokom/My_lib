@@ -1,6 +1,16 @@
-#include <string.h>
-#include <stdlib.h>
-#include "my_lib.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 19:09:17 by skharjo           #+#    #+#             */
+/*   Updated: 2020/11/06 20:36:51 by skharjo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -8,22 +18,24 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 
 	i = 0;
-	strjoin = (char*)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if(strjoin)
+	if (!s1 || !s2)
+		return (NULL);
+	strjoin = (char *)malloc(sizeof(char) * (ft_strlen(s1) +
+			ft_strlen(s2) + 1));
+	if (strjoin)
 	{
-		while(*s1)
+		while (*s1)
 		{
 			strjoin[i] = *s1++;
 			i++;
 		}
-		while(*s2)
+		while (*s2)
 		{
 			strjoin[i] = *s2++;
 			i++;
 		}
 		strjoin[i] = '\0';
+		return (strjoin);
 	}
-	else
-		return(NULL);
-	return(strjoin);
+	return (NULL);
 }

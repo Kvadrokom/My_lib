@@ -1,7 +1,21 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 18:48:45 by skharjo           #+#    #+#             */
+/*   Updated: 2020/11/06 20:36:25 by skharjo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void    ft_putstr(char  *str)
+#include "libft.h"
+
+void	ft_putstr(char *str)
 {
-    while (*str)
-        write(1, &(*str++), 1);
+	if (!str)
+		return ;
+	while (*str)
+		write(1, &(*str++), 1);
 }

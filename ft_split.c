@@ -1,22 +1,32 @@
-#include <string.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 18:52:22 by skharjo           #+#    #+#             */
+/*   Updated: 2021/03/26 18:35:16 by skharjo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 #include <stdio.h>
-#include "my_lib.h"
 
-int    ft_length(const char    *s, char    c)
+static int			ft_length(const char *s, char c)
 {
-    int    len;
+	int		len;
 
-    len = 0;
-    while (*s != c)
+	len = 0;
+	while (*s != c && *s)
 	{
 		len++;
 		s++;
 	}
-    return(len);
+	return (len);
 }
 
-int	ft_numstr(const char *s, char c, int numstr)
+static int			ft_numstr(const char *s, char c, int numstr)
 {
 	int	inword;
 
@@ -24,29 +34,28 @@ int	ft_numstr(const char *s, char c, int numstr)
 	if (s)
 	{
 		while (*s)
-    	{
-      		if (*s == c)
-			  {
+		{
+			if (*s == c)
+			{
 				inword = 1;
 				s++;
-			  }
-      		if (*s != c)
-	  		{
-		  		if (inword)
-		  		{
+			}
+			if (*s != c && *s)
+			{
+				if (inword)
+				{
 					numstr++;
 					inword = 0;
-		  		}
+				}
 				s++;
-	  		}  		
-    	}
-		return(numstr);
+			}
+		}
+		return (numstr);
 	}
-	else
-	return(0);
+	return (0);
 }
 
-char	*ft_makestr(const char	*s, char	c)
+static char			*ft_makestr(const char *s, char c)
 {
 	char	*str;
 	int		len;
@@ -55,13 +64,43 @@ char	*ft_makestr(const char	*s, char	c)
 	i = 0;
 	len = ft_length(s, c);
 	str = (char*)malloc(sizeof(char) * (len + 1));
-	while(i < len)
+	if (!str)
+		return (NULL);
+	while (i < len)
 		str[i++] = *s++;
 	str[i] = '\0';
-	return(str);
+	return (str);
 }
 
-char	**ft_split(char const *s, char c)
+static char			**ft_split_d(char **split, int numstr,
+								char c, const char *s)
+{
+	int i;
+
+	i = 0;
+	while (i < numstr && *s)
+	{
+		if (*s == c)
+			s++;
+		else
+		{
+			split[i] = ft_makestr(s, c);
+			if (!split[i])
+			{
+				while (i >= 0)
+					free(split[i--]);
+				free(split);
+				return (NULL);
+			}
+			s = s + ft_length(s, c);
+			i++;
+		}
+	}
+	split[i] = 0;
+	return (split);
+}
+
+char				**ft_split(char const *s, char c)
 {
 	char	**split;
 	int		numstr;
@@ -70,21 +109,10 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	numstr = 0;
 	if (!s)
-		return(NULL);
+		return (NULL);
 	numstr = ft_numstr(s, c, numstr);
-	split = (char**)malloc(sizeof(char*) * (numstr + 1));
+	split = (char **)malloc(sizeof(char *) * (numstr + 1));
 	if (!split)
-		return(NULL);
-	while(i < numstr && *s)
-	{
-		if (*s == c)
-			s++;
-		else
-		{
-			split[i++] = ft_makestr(s, c);
-			s = s + ft_length(s, c);
-		}
-	}
-	split[i] = 0;
-	return(split);
+		return (NULL);
+	return (ft_split_d(split, numstr, c, s));
 }

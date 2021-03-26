@@ -1,4 +1,16 @@
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 18:14:37 by skharjo           #+#    #+#             */
+/*   Updated: 2020/11/06 20:35:24 by skharjo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
@@ -7,11 +19,11 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 
 	tdest = (unsigned char*)dest;
 	tsrc = (unsigned char*)src;
-	while(n--)
+	while (n--)
 	{
 		*tdest++ = *tsrc++;
-		if(*(tsrc - 1) == (unsigned char)c)
+		if (*(tsrc - 1) == (unsigned char)c)
 			return (tdest);
 	}
-	return(0);
+	return (0);
 }

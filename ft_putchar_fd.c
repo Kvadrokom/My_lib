@@ -1,8 +1,16 @@
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <wchar.h>
-#include "my_lib.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 18:34:31 by skharjo           #+#    #+#             */
+/*   Updated: 2020/11/06 20:35:56 by skharjo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

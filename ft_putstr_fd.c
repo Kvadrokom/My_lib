@@ -1,10 +1,22 @@
-#include <string.h>
-#include <unistd.h>
-#include "my_lib.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 18:47:59 by skharjo           #+#    #+#             */
+/*   Updated: 2020/11/06 20:36:21 by skharjo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	while(*s)
+	if (!s)
+		return ;
+	while (*s)
 	{
 		ft_putchar_fd(*s, fd);
 		s++;

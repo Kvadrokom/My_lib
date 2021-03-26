@@ -1,32 +1,34 @@
-#include <string.h>
-#include "my_lib.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 19:18:43 by skharjo           #+#    #+#             */
+/*   Updated: 2020/11/15 12:15:19 by skharjo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char    *ft_strnstr(const char    *big, const char *little, size_t len)
+#include "libft.h"
+#include <stdio.h>
+
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-    size_t    j;
-    size_t    n;
+	size_t lit_len;
 
-    j = 0;
-    n = len;
-    if (ft_strlen(little) > ft_strlen(big))
-            return(NULL);
-    if (!len || !ft_strlen(little))
-        return(big);
-    while(*big && n)
-    {
-        if (n-- && *big == *little)
-        {
-            while( little[j] && *big)
-            {
-                if(*big++ != little[j])
-                    break;
-                    j++;
-            }
-        }
-        if (little[j] == 0)
-            return((char *)big - j);
-        j = 0;
-        big++;
-    }
-    return(NULL);
+	lit_len = 0;
+	lit_len = ft_strlen(little);
+	if (!*little)
+		return ((char *)big);
+	if (len == 0)
+		return (NULL);
+	while (*big && len >= lit_len)
+	{
+		if (!ft_strncmp(little, big, lit_len) && *little == *big)
+			return ((char *)big);
+		big++;
+		len--;
+	}
+	return (NULL);
 }
