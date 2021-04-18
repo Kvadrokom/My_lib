@@ -6,11 +6,20 @@
 /*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 19:12:03 by skharjo           #+#    #+#             */
-/*   Updated: 2020/11/06 20:37:02 by skharjo          ###   ########.fr       */
+/*   Updated: 2021/04/18 19:19:03 by skharjo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	make_op(const char *src, size_t siz, char *d, const char *s)
+{
+	if (siz != 0)
+		*d = '\0';
+	while (*s++)
+		;
+	return (s - src - 1);
+}
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t siz)
 {
@@ -25,16 +34,18 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t siz)
 	{
 		while (--n != 0)
 		{
-			if ((*d++ = *s++) == '\0')
+			*d = *s;
+			if (*d == '\0' || *s == '\0')
+			{
+				s++;
+				d++;
 				break ;
+			}
+			d++;
+			s++;
 		}
 	}
 	if (n == 0)
-	{
-		if (siz != 0)
-			*d = '\0';
-		while (*s++)
-			;
-	}
+		return (make_op(src, siz, d, s));
 	return (s - src - 1);
 }

@@ -6,7 +6,7 @@
 /*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 19:07:37 by skharjo           #+#    #+#             */
-/*   Updated: 2020/11/06 20:36:44 by skharjo          ###   ########.fr       */
+/*   Updated: 2021/04/17 20:57:32 by skharjo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *str)
 	int		i;
 
 	i = 0;
-	strdup = (char*)malloc(sizeof(char) * (ft_strlen(str) + 1));
+	strdup = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
 	if (strdup && str)
 	{
 		while (*str)

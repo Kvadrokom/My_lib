@@ -75,6 +75,3 @@ bonus:
 	@make OBJ_ALL="$(OBJ) $(OBJ_BONUS)" all
 
 .PHONY: all bonus clean fclean re
-
-add:
-	git add $(SRC) $(SRC_BONUS) Makefile

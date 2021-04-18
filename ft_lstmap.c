@@ -6,7 +6,7 @@
 /*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 17:40:36 by skharjo           #+#    #+#             */
-/*   Updated: 2020/11/06 20:35:08 by skharjo          ###   ########.fr       */
+/*   Updated: 2021/04/17 21:04:37 by skharjo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	while (lst)
 	{
-		if ((tmp = ft_lstnew(f(lst->content))) == NULL && del)
+		tmp = ft_lstnew(f(lst->content));
+		if (!tmp && del)
 		{
 			while (new)
 			{

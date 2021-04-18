@@ -6,14 +6,14 @@
 /*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:52:22 by skharjo           #+#    #+#             */
-/*   Updated: 2021/03/26 18:35:16 by skharjo          ###   ########.fr       */
+/*   Updated: 2021/04/17 21:06:46 by skharjo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static int			ft_length(const char *s, char c)
+static int	ft_length(const char *s, char c)
 {
 	int		len;
 
@@ -26,7 +26,7 @@ static int			ft_length(const char *s, char c)
 	return (len);
 }
 
-static int			ft_numstr(const char *s, char c, int numstr)
+static int	ft_numstr(const char *s, char c, int numstr)
 {
 	int	inword;
 
@@ -55,7 +55,7 @@ static int			ft_numstr(const char *s, char c, int numstr)
 	return (0);
 }
 
-static char			*ft_makestr(const char *s, char c)
+static char	*ft_makestr(const char *s, char c)
 {
 	char	*str;
 	int		len;
@@ -63,7 +63,7 @@ static char			*ft_makestr(const char *s, char c)
 
 	i = 0;
 	len = ft_length(s, c);
-	str = (char*)malloc(sizeof(char) * (len + 1));
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
 	while (i < len)
@@ -72,10 +72,10 @@ static char			*ft_makestr(const char *s, char c)
 	return (str);
 }
 
-static char			**ft_split_d(char **split, int numstr,
+static char	**ft_split_d(char **split, int numstr,
 								char c, const char *s)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (i < numstr && *s)
@@ -100,7 +100,7 @@ static char			**ft_split_d(char **split, int numstr,
 	return (split);
 }
 
-char				**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**split;
 	int		numstr;

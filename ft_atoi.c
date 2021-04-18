@@ -6,11 +6,25 @@
 /*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 18:36:10 by skharjo           #+#    #+#             */
-/*   Updated: 2020/11/06 20:32:39 by skharjo          ###   ########.fr       */
+/*   Updated: 2021/04/18 12:40:00 by skharjo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	if_sign(char ch)
+{
+	if (ch == '-')
+		return (-1);
+	return (1);
+}
+
+int	if_over(int sign)
+{
+	if (sign > 0)
+		return (-1);
+	return (0);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -22,18 +36,21 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	nbr = 0;
 	llval = 0;
-	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\r' ||
-			*str == '\v' || *str == '\f')
+	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\r'
+		|| *str == '\v' || *str == '\f')
 		str++;
 	if (*str == '-' || *str == '+')
-		sign = (*str++ == '-') ? -1 : 1;
+	{
+		sign = if_sign(*str);
+		str++;
+	}
 	while (*str >= '0' && *str <= '9')
 	{
 		nbr = nbr * 10 + (*str - 48);
 		tmp = llval;
 		llval = llval * 10 + (*str++ - 48);
 		if (tmp > llval)
-			return (sign > 0 ? -1 : 0);
+			return (if_over(sign));
 	}
 	return (nbr * sign);
 }

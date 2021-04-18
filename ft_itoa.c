@@ -6,7 +6,7 @@
 /*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 20:13:46 by skharjo           #+#    #+#             */
-/*   Updated: 2020/11/06 19:09:42 by skharjo          ###   ########.fr       */
+/*   Updated: 2021/04/17 21:02:45 by skharjo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #define STR "-2147483648"
 
-static char		*ft_min_zero(int num)
+static char	*ft_min_zero(int num)
 {
 	char	*tmp;
 	int		i;
@@ -43,7 +43,7 @@ static char		*ft_min_zero(int num)
 	return (NULL);
 }
 
-static char		*make_str_from_int(char *c, int sign, int i)
+static char	*make_str_from_int(char *c, int sign, int i)
 {
 	int		k;
 	char	*tmp;
@@ -67,7 +67,7 @@ static char		*make_str_from_int(char *c, int sign, int i)
 	return (NULL);
 }
 
-char			*ft_itoa(int num)
+char	*ft_itoa(int num)
 {
 	char	c[20];
 	int		i;

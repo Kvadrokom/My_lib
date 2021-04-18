@@ -6,7 +6,7 @@
 /*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 20:51:02 by skharjo           #+#    #+#             */
-/*   Updated: 2020/11/06 20:34:36 by skharjo          ###   ########.fr       */
+/*   Updated: 2021/04/17 20:51:56 by skharjo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *lst;
 	if ((*lst) && del)

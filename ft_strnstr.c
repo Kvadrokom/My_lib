@@ -6,7 +6,7 @@
 /*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 19:18:43 by skharjo           #+#    #+#             */
-/*   Updated: 2020/11/15 12:15:19 by skharjo          ###   ########.fr       */
+/*   Updated: 2021/04/17 21:00:24 by skharjo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t lit_len;
+	size_t	lit_len;
 
 	lit_len = 0;
 	lit_len = ft_strlen(little);

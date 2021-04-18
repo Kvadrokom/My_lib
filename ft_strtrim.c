@@ -6,13 +6,13 @@
 /*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 19:30:40 by skharjo           #+#    #+#             */
-/*   Updated: 2020/11/06 20:37:42 by skharjo          ###   ########.fr       */
+/*   Updated: 2021/04/17 21:05:04 by skharjo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*ft_strnew(int n)
+static char	*ft_strnew(int n)
 {
 	char	*str;
 	int		i;
@@ -29,7 +29,7 @@ static char		*ft_strnew(int n)
 	return (NULL);
 }
 
-static int		ft_findex(const char *s1, const char *set)
+static int	ft_findex(const char *s1, const char *set)
 {
 	size_t	start;
 
@@ -42,7 +42,7 @@ static int		ft_findex(const char *s1, const char *set)
 	return (start);
 }
 
-static int		ft_bindex(const char *set, const char *tmp, int len)
+static int	ft_bindex(const char *set, const char *tmp, int len)
 {
 	while (ft_strchr(set, *tmp) && len)
 	{
@@ -52,7 +52,7 @@ static int		ft_bindex(const char *set, const char *tmp, int len)
 	return (len + 1);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*strtrim;
 	size_t	end;
@@ -68,7 +68,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	end = ft_bindex(set, s1 + ft_strlen(s1), ft_strlen(s1));
 	if (end >= start)
 	{
-		strtrim = (char*)malloc(sizeof(char) * (end - start + 1));
+		strtrim = (char *)malloc(sizeof(char) * (end - start + 1));
 		if (strtrim)
 		{
 			while (start < end)

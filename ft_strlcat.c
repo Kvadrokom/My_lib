@@ -6,7 +6,7 @@
 /*   By: skharjo <skharjo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 19:10:22 by skharjo           #+#    #+#             */
-/*   Updated: 2020/11/09 21:40:41 by skharjo          ###   ########.fr       */
+/*   Updated: 2021/04/17 20:59:06 by skharjo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t len_dst;
-	size_t len_src;
-	size_t i;
+	size_t	len_dst;
+	size_t	len_src;
+	size_t	i;
 
 	i = 0;
 	len_dst = ft_strlen(dst);
